@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Know Password Strength</title>
+   <link rel="stylesheet" href="pass1.css">
+   <!-- FONT AWESOME CDN -->
+   <script src="https://kit.fontawesome.com/406c1fcfd3.js" crossorigin="anonymous"></script>
+   <!-- FONT AWESOME CDN -->
+</head>
+<body>
+   <h2>Password Validiation HTML & CSS</h2>
+   <div class="main">
+      <div class="input-container">
+    <input type="password" id="password" placeholder="Enter your Password">
+    <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+    <p class="output"><b>Your Password Strength is: <span id="strength"></span></b></p>
+   </div>
+   <script>
+      var pass = document.querySelector("#password");
+      var msg  = document.querySelector(".output");
+      var str = document.querySelector("#strength");
+      pass.addEventListener('input', () => {
+         if(pass.value.length > 0){
+            msg.style.display = "block";
+         }
+         else{
+            msg.style.display = "none";
+         }
+         if(pass.value.length < 4){
+            str.innerHTML = "Weak, Try Something Hard";
+         }
+         else if(pass.value.length < 8){
+            str.innerHTML = "Medium, It Is Okay";
+         }
+         else if(pass.value.length < 16){
+            str.innerHTML = "Strong, Your Password Powerful";
+         }
+      })
+   </script>
+</body>
+</html>
